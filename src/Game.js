@@ -3,9 +3,10 @@ import React, { useState } from "react";
 import portal from "./portal.png";
 import Board from "./components/Board";
 import rick from "./rick.png";
-import pickleRick from "./pickleRick.png";
-const picRick = <img className="rick" src={rick} alt="Rick" />;
-const ricPick = <img className="rick" src={pickleRick} alt="Pickle Rick" />;
+//import pickleRick from "./pickleRick.png";
+import astley from "./astley.png";
+const picRick = <img className="rick" src={rick} alt="Rick Sanchez" />;
+const ricPick = <img className="rick" src={astley} alt="Rick Astley" />;
 function Game() {
   const [movesList, setMovesList] = useState({
     history: [{ squares: Array(9).fill(null) }],
@@ -58,9 +59,12 @@ function Game() {
   let status;
   if (winner) {
     status = `Winner: ${winner.props.alt}`;
-    console.log(winner);
+  } else if (!winner && movesList.stepNumber === 9) {
+    status = `Draw: You're both losers`;
   } else {
-    status = `Next player ${movesList.xIsNext ? ": Rick" : ": Pickle Rick"}`;
+    status = `Next player ${
+      movesList.xIsNext ? ": Rick Sanchez" : ": Rick Astley"
+    }`;
   }
 
   return (
@@ -78,6 +82,26 @@ function Game() {
             squares={current.squares}
             onClick={(index) => handleClick(index)}
           />{" "}
+          {status === `Winner: Rick Astley` && (
+            <iframe
+              title="rickroll"
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            ></iframe>
+          )}{" "}
+          {status === `Winner: Rick Sanchez` && (
+            <iframe
+              title="rickDance"
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/UFFi9PWKDjg?autoplay=1"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            ></iframe>
+          )}
         </div>{" "}
         <div className="game-info">
           <div className="status">{status}</div>
