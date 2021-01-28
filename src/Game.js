@@ -94,10 +94,20 @@ function Game() {
           )}{" "}
           {status === `Winner: Rick Sanchez` && (
             <iframe
-              title="rickDance"
+              title="sanchezRoll"
               width="560"
               height="315"
-              src="https://www.youtube.com/embed/UFFi9PWKDjg?autoplay=1"
+              src="https://www.youtube.com/embed/izDc3G9ZRfw?autoplay=1"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            ></iframe>
+          )}
+          {status === `Draw: You're both losers` && (
+            <iframe
+              title="draw"
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/r06WA0mJ4ww?autoplay=1"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             ></iframe>
